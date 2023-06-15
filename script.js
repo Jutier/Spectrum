@@ -12,16 +12,36 @@ function Log(){
 
 
 
-//Slider
+// Slider
 const
-  range = document.getElementById('range'),
-  rangeV = document.getElementById('rangeV'),
-  setValue = ()=>{
-    const
-      newValue = Number( (range.value - range.min) * 100 / (range.max - range.min) ),
-      newPosition = 10 - (newValue * 0.2);
-    rangeV.innerHTML = `<span>${range.value}</span>`;
-    rangeV.style.left = `calc(${newValue}% + (${newPosition}px))`;
-  };
+	range = document.getElementById('range'),
+	rangeV = document.getElementById('rangeV'),
+	setValue = ()=>{
+		const
+			newValue = Number( (range.value - range.min) * 100 / (range.max - range.min) ),
+			newPosition = 10 - (newValue * 0.2);
+		rangeV.innerHTML = `<span>${range.value}</span>`;
+		rangeV.style.left = `calc(${newValue}% + (${newPosition}px))`;
+	};
 document.addEventListener("DOMContentLoaded", setValue);
 range.addEventListener('input', setValue);
+//
+
+// Mass table
+
+let ElementMass = {
+	"H" : 1,
+	"He" : 4,
+	"Li" : 7,
+	"Be" : 9,
+	"B" : 11,
+	"C" : 12,
+	"N" : 14,
+	"O" : 16,
+	"F" : 19,
+	"Ne" : 20,
+	"Na" : 23,
+	"Mg" : 24,
+	"Al" : 27,
+	"Si" : 28
+}
