@@ -3,9 +3,10 @@ from math import sin, cos, sqrt
 from sys import argv
 import json
 
-with open("ElementMass.JSON") as f:
-	Mass = json.loads(f)
-	print(Mass)
+with open("AtomMass.JSON", 'r') as f:
+	data = f.read()
+	Mass = json.loads(data[17:])
+print(Mass)
 
 def Kfactor(P, T, A):
 	A = (A/180)*pi
