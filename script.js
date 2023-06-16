@@ -1,10 +1,13 @@
-function Log(){
-	let Target = parseFloat(document.getElementById("Target").value);
-	let Projectile = parseFloat(document.querySelector('input[name="Projectile"]:checked').value);
-	let Angle = Math.PI*(document.getElementById('range').value/180)
-	let K = ((Math.sqrt((Target**2)-((Projectile**2)*Math.sin(Angle))) + (Projectile*Math.cos(Angle)))/(Target + Projectile))**2
-	console.log(K)
-	factorK.innerHTML = `<p>${K}</p>`;
+function Calculate(){
+	let Target = document.getElementById("Target").value;
+	let M2 = ElementMass[Target];
+	let Projectile = document.querySelector('input[name="Projectile"]:checked').value;
+	let M1 = ElementMass[Projectile];
+	let Angle = Math.PI*(document.getElementById('range').value/180);
+	let MR = M1/M2;
+	let K = ((Math.sqrt(1-(MR**2)*Math.sin(Angle)**2) + MR*Math.cos(Angle))/(1+MR))**2;
+	let Kround = Math.round(K*10000)/10000;
+	factorK.innerHTML = `<p>${Kround}</p>`;
 
 
 }
@@ -26,22 +29,3 @@ const
 document.addEventListener("DOMContentLoaded", setValue);
 range.addEventListener('input', setValue);
 //
-
-// Mass table
-
-let ElementMass = {
-	"H" : 1,
-	"He" : 4,
-	"Li" : 7,
-	"Be" : 9,
-	"B" : 11,
-	"C" : 12,
-	"N" : 14,
-	"O" : 16,
-	"F" : 19,
-	"Ne" : 20,
-	"Na" : 23,
-	"Mg" : 24,
-	"Al" : 27,
-	"Si" : 28
-}

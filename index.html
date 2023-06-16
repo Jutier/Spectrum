@@ -5,8 +5,8 @@
 	<meta name="description" content="Cinematic Factor Calculator">
 	<link rel="icon" href="https://media.licdn.com/dms/image/D4D12AQFYn8Dt4ZtxGw/article-cover_image-shrink_600_2000/0/1677940414051?e=2147483647&v=beta&t=2g2xg3vlCQoPwDUHQwiLHpK8AKOsVZ2NKGh2oYmyYjQ">
 	<link rel="stylesheet" href="style.css">
-
 	<title>RBS: K</title>
+	<script src="ElementMass.JSON"></script>
 </head>
 
 <body>
@@ -20,9 +20,9 @@
 		</fieldset>
 		<fieldset class="Projectile">
 			<legend>Projectile</legend>
-			<input type="radio" name="Projectile" id="He" value="4" checked="True">
+			<input type="radio" name="Projectile" id="He" value="He" checked="True">
 			<label for="He">He</label>
-			<input type="radio" name="Projectile" id="H" value="1">
+			<input type="radio" name="Projectile" id="H" value="H">
 			<label for="H">H</label>
 		</fieldset>
 		<fieldset class="Angle">
@@ -34,7 +34,7 @@
 			</div>
 
 		</fieldset>
-		<button onclick="Log()">Log</button>
+		<button onclick="Calculate()">Log</button>
 		<fieldset>
 			<legend>Cinematic Factor</legend>
 			<span id="factorK"></span>
