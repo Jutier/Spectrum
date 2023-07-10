@@ -6,7 +6,6 @@ import json
 with open("AtomMass.JSON", 'r') as f:
 	data = f.read()
 	Mass = json.loads(data[17:])
-print(Mass)
 
 def Kfactor(P, T, A):
 	A = (A/180)*pi
