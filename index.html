@@ -16,7 +16,7 @@
 	<content>
 		<fieldset class="Target">
 			<legend>Target element</legend>
-			<input id="Target" placeholder="Mass" type="text" name="Element">
+			<input id="Target" placeholder="Symbol" type="text" name="Element">
 		</fieldset>
 		<fieldset class="Projectile">
 			<legend>Projectile</legend>
@@ -34,10 +34,13 @@
 			</div>
 
 		</fieldset>
-		<button onclick="Calculate()">Log</button>
-		<fieldset>
+		<fieldset class="Factor">
 			<legend>Cinematic Factor</legend>
-			<span id="factorK"></span>
+			<button onclick="Calculate()">Calculate</button>
+
+			<span id="factorK">
+				<p>0</p>
+			</span>
 		</fieldset>
 	</content>
 
