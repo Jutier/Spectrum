@@ -16,5 +16,10 @@ def KFactor(P, T, A):
 	return round(K, 4)
 
 if __name__ == "__main__":
+<<<<<<< HEAD
 	P, T, A = argv[1], argv[2], float(argv[3])
 	print(KFactor(P, T, A))
+=======
+	P, T, A = Mass[argv[1]], Mass[argv[2]], float(argv[3])
+	print(Kfactor(P, T, A))
+>>>>>>> 57858ad8c815721baadd60c21edb1e123ce678b1
