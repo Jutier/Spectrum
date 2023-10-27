@@ -6,9 +6,11 @@ import K as Kpy
 #	print(f"{i}: , ",end='')
 
 
-dDict = {0.9:43.7, 1.0:42.91, 1.1:42.02, 1.2:41.06, 1.3:40.08, 1.4:39.10, 1.5:38.13, 1.6:37.19, 1.7:36.28, 1.8:35.40, 2.0:33.75, 2.25:31.87, 2.5:30.19}
+dDict = {0.4:32.42, 0.45:33.14, 1.2:31.14}
+#{0.9:43.7, 1.0:42.91, 1.1:42.02, 1.2:41.06, 1.3:40.08, 1.4:39.10, 1.5:38.13, 1.6:37.19, 1.7:36.28, 1.8:35.40, 2.0:33.75, 2.25:31.87, 2.5:30.19}
 
 def dE(energy):
+	print(energy)
 	eList = list(dDict.keys())
 	if energy in eList:
 		return dDict[energy]
@@ -27,7 +29,4 @@ def SFactor(theta1, theta2, Projectile, Target, E0):
 	K = Kpy.KFactor(Projectile, Target, 180-theta2) #Using theta2 as the angle is not right but it works in this case
 	return (K*dE(E0))/cos(theta1*pi/180) + dE(K*E0)/cos(theta2*pi/180)
 
-for ele in ['Al', 'O', 'S', 'Cu']:
-	print(ele, "=", 5765/SFactor(0, 15, 'He', ele, 2.48), "A/ch")
-	
-print(dE(1.9354))
+print("O", "=", 1805/SFactor(0, 15, 'He', "O", 1.2), "A/ch")

@@ -8,9 +8,6 @@ function Calculate(){
 	let K = ((Math.sqrt(1-(MR**2)*Math.sin(Angle)**2) + MR*Math.cos(Angle))/(1+MR))**2;
 	let Kround = Math.round(K*10000)/10000;
 	factorK.innerHTML = `<p>${Kround}</p>`;
-	console.log(M2, M1)
-
-
 }
 
 
