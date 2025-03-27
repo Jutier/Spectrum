@@ -1,5 +1,26 @@
+let AtomMass = {};
+
+function loadAtomMass() {
+    fetch('AtomMass.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error loading JSON');
+            }
+            return response.json();
+        })
+        .then(data => {
+            AtomMass = data;
+            console.log(AtomMass)
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
+
+loadAtomMass();
+
 function Calculate(){
-	let Target = document.getElementById("Target").value;
+	let Target = document.getElementById('Target').value;
 	let M2 = AtomMass[Target];
 	let Projectile = document.querySelector('input[name="Projectile"]:checked').value;
 	let M1 = AtomMass[Projectile];
