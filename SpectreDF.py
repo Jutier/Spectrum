@@ -1,15 +1,15 @@
 import pandas as pd
 
-def readRP1(file):
+def readRP1(file, skiplines=6):
 	ch = []
 	cnt = []
 	with open(file, 'r') as f:
 		line = 0
 		for x in f:
-			if line > 5:
+			if line >= skiplines:
 				n = int(x[0:-1])
-				cnt.append(n)
-				ch.append(line-5)
+				cnt.append(n+1)
+				ch.append(line-skiplines)
 			line += 1
 	df = pd.DataFrame({'Channel':ch, 'Counts':cnt})
 	return df
@@ -40,6 +40,16 @@ def areaAB(df, column, A, B):
 def smooth(df, column, win=5):
 	df['Smooth'] = df[column].rolling(win).mean()
 	df['Smooth'] = df['Smooth'].fillna(df[column])
+
+def calib(df, A, B):
+	df['Energy'] = (A * df['Channel']) + B
+
+def removeBackground(df, x1, y1, x2, y2, start, end, x='Channel', y='Counts'):
+	A = (y1 - y2) / (x1 - x2)
+	B = y1 - A * x1
+
+	mask = (df[x] >= start) & (df[x] <= end)
+	df.loc[mask, y] = df.loc[mask, y] - (A * df.loc[mask, x] + B)
 
 def tableSciD(sampleDict, sampleList, col='Norm'):
 	with open('SciDavisImport.txt', 'w') as f:
